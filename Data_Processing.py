@@ -1,7 +1,8 @@
 import re
 import csv
 from pathlib import Path
-
+import sys
+import pandas as pd
 import nltk
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
@@ -80,16 +81,20 @@ def reduction_rate(before, after):
 
 #file path
 BASE_DIR = Path(__file__).resolve().parent
-file_path = BASE_DIR / "Data" / "news_sample.csv"
+if len(sys.argv) < 2:
+    print("Usage: python Data_Processing.py <path_to_csv>")
+    sys.exit(1)
+
+file_path = Path(sys.argv[1])
+out_path = file_path.with_name("processed_" + file_path.name)
+    
 
 print("Using file:", file_path)
 print("Exists?", file_path.exists())
 
 if not file_path.exists():
     raise FileNotFoundError(
-        f"Kan ikke finde filen: {file_path}\n"
-        "Tjek at mappen 'Data' ligger ved siden af scriptet, og at filnavnet er 'news_sample.csv'."
-    )
+        f"Kan ikke finde filen: {file_path}\n")
 
 # n styrrer hvor mange linjer vi prøver på
 N = None  # sample størrelse. None for hele filen
@@ -101,6 +106,7 @@ all_tokens_stemmed = []
 with open(file_path, "r", encoding="utf-8-sig", newline="") as f:
     reader = csv.DictReader(f)
     docs_read = 0
+    processed_rows = []
     for i, row in enumerate(reader):
         if N is not None and i >= N:
             break
@@ -116,6 +122,14 @@ with open(file_path, "r", encoding="utf-8-sig", newline="") as f:
         all_tokens_raw.extend(tokens)
         all_tokens_no_stop.extend(tokens_no_stop)
         all_tokens_stemmed.extend(tokens_stem)
+
+        processed_rows.append({"type": row.get("type"), "processed_content": " ".join(tokens_stem)})
+
+
+# Saves the stemmed tokens to a CSV file
+data = pd.DataFrame(processed_rows)
+data.to_csv(out_path, index=False)
+print(f"Processed data saved to: {out_path}")
 
 #printeren
 V_raw = vocab_size(all_tokens_raw)
