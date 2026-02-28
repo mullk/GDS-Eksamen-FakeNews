@@ -8,6 +8,8 @@ from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 
+csv.field_size_limit(2**31-1)
+
 def clean_text(text):
     # lowercase
     text = str(text).lower()
