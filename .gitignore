@@ -12,3 +12,5 @@ Data_Opgave_3/processed_news_sample.csv
 Data_Opgave_3/splits/train.csv
 Data_Opgave_3/splits/val.csv
 Data_Opgave_3/splits/test.csv
+__pycache__/
+*.pyc
