@@ -1,0 +1,2 @@
+dataset,accuracy,precision_fake,recall_fake,f1_fake,f1_macro
+LIAR TEST (no retraining),0.5339321357285429,0.5716666666666667,0.620253164556962,0.5949696444058976,0.523101743472044

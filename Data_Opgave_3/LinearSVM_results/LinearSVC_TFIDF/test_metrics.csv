@@ -1,0 +1,2 @@
+model,dataset,accuracy,precision_fake,recall_fake,f1_fake,f1_macro
+LinearSVC_TFIDF,test,0.9192734118107252,0.9187339395137379,0.918144105881772,0.918438927998024,0.9192649603447842
