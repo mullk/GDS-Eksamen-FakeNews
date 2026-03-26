@@ -24,16 +24,6 @@ The notebooks contain the outputs, and results of the advanced model can also be
 
 # Sources
 
-https://chatgpt.com/g/g-p-6981be185df08191b4c5800d601d9271-basic-data-science/c/69af1529-6484-838b-a9c7-4d5d4aa92521
-
-https://chatgpt.com/g/g-p-6981be185df08191b4c5800d601d9271-basic-data-science/c/69afe57b-12b4-8393-b87b-79a91e84c9c1
-
-https://chatgpt.com/g/g-p-6981be185df08191b4c5800d601d9271-basic-data-science/c/69b2850c-9448-838e-80a5-2400399b1095
-
-https://chatgpt.com/g/g-p-6981be185df08191b4c5800d601d9271-basic-data-science/c/69bbfbeb-1130-838f-9e3e-eaecb9a52b05
-
-
-
 
 Python standard library: https://docs.python.org/3/
 
